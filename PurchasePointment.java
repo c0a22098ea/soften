@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
         }
 	if (comic.isEnabled()) {
 	    throw new IllegalArgumentException("現在取り扱いのできないコミックです。");
-	}    if (customer.possessionPoint.amount < comic.currentPurchasePoint.amount) {
-	  throw new RuntimeException("所持ポイントが不足しています。");
+	}    
+        if (customer.isShortOfPoint(comic)) {
+	    throw new RuntimeException("所持ポイントが不足しています。");
 	}
 	customerId = customer.id;
 	comicId = comic.id;
