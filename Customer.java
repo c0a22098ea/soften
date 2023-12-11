@@ -1,4 +1,4 @@
-public class Customer {
+ipublic class Customer {
   public final CustomerId id;
   public final PurchasePoint possessionPoint;
 
@@ -14,3 +14,12 @@ public class Customer {
   public boolean isDisabled() {
     return false;
   }
+
+  /**
+   * @param comic 購入対象のWebコミック
+   * @return 所持ポイントが不足している場合true
+   */
+  public boolean isShortOfPoint(Comic comic) {
+    return possessionPoint.amount < comic.currentPurchasePoint.amount;
+  }
+}
